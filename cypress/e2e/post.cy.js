@@ -7,21 +7,20 @@ let data = {
 }
 describe('POST /users - criar um novo usuario', () => {
 
-    const baseUrl = ('https://jsonplaceholder.typicode.com/users')
+    const baseUrl = ('https://jsonplaceholder.typicode.com/users');
 
-    beforeEach(() => {
-        it('Deve retornar status 200', () => {
-            cy.api({
-                method: 'GET',
-                url: baseUrl + '/1'
-            }).then((res) => {
-                expect(res.status).to.equal(200);
-            });
+const validarStatus = () => {
+    it('Deve retornar status 200', () => {
+        cy.api({
+            method: 'GET',
+            url: baseUrl
+        }).then((res) => {
+            expect(res.status).to.equal(200);
         });
-
     });
+};
 
-    it('Deve criar novo usuario com sucesso', () => {
+    const criarUsuario = () => {
         let body = {
             name: `${data.FirstName} ${data.LastName}`,
             email: data.email
@@ -40,5 +39,13 @@ describe('POST /users - criar um novo usuario', () => {
             expect(res.body.email).to.be.include('@');
             expect(res.body.email).to.be.a('string');
         });
+    };
+
+    beforeEach(() => {
+        validarStatus();
+    });
+
+    it('Deve criar novo usuario com sucesso', () => {
+        criarUsuario();
     });
 });

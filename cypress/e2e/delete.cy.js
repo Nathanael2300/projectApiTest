@@ -1,18 +1,19 @@
 describe('DELETE /users/1 - Deletar usuario da lista', () => {
+
   const baseUrl = 'https://jsonplaceholder.typicode.com/users';
 
-  beforeEach(() => {
+  const validarStatus = () => {
     it('Deve retornar status 200', () => {
       cy.api({
         method: 'GET',
-        url: baseUrl + '/1'
+        url: baseUrl
       }).then((res) => {
         expect(res.status).to.equal(200);
       });
     });
-  });
+  };
 
-  it('Deve deletar o usuario', () => {
+  const deletarUsuario = () => {
     cy.api({
       method: 'DELETE',
       url: baseUrl + '/1'
@@ -20,5 +21,13 @@ describe('DELETE /users/1 - Deletar usuario da lista', () => {
       expect(res.status).to.equal(200);
       expect(res.body).to.be.empty;
     });
+  };
+
+  beforeEach(() => {
+    validarStatus();
+  });
+
+  it('Deve deletar o usuario', () => {
+    deletarUsuario();
   });
 });
