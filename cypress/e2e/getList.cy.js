@@ -1,0 +1,33 @@
+describe('GET /users - retornar uma lista de usuarios', () => {
+  const baseUrl = ('https://jsonplaceholder.typicode.com/users')
+
+  beforeEach(() => {
+    it('Deve retornar status 200', () => {
+      cy.api({
+        method: 'GET',
+        url: baseUrl + '/1'
+      }).then((res) => {
+        expect(res.status).to.equal(200);
+      });
+    });
+
+  });
+
+  it('Deve retornar uma lista de usuarios', () => {
+    cy.api({
+      method: 'GET',
+      url: baseUrl
+    }).then((res) => {
+      for (let i = 0; i < res.body.length; i++) {
+        expect(res.status).to.be.equal(200);
+        expect(res.body[i]).to.have.property('id');
+        expect(res.body[i].id).to.be.a('number');
+        expect(res.body[i]).to.have.property('name');
+        expect(res.body[i].name).to.be.a('string');
+        expect(res.body[i]).to.have.property('email');
+        expect(res.body[i].email).to.be.include('@');
+        expect(res.body[i].email).to.be.a('string');
+      };
+    });
+  });
+});
