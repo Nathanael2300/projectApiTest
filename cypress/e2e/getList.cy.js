@@ -36,6 +36,6 @@ describe('GET /users - retornar uma lista de usuarios', () => {
   });
 
   it('Deve retornar uma lista de usuarios', () => {
-    retornarUsuarios();
+    retornarListasUsuarios();
   });
 });
