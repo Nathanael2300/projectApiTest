@@ -3,14 +3,12 @@ describe('GET /users/id:1 - retornar um usuario', () => {
 const baseUrl = ('https://jsonplaceholder.typicode.com/users')
 
 const validarStatus = () => {
- it('Deve retornar status 200', () => {
-    cy.api({
+    return cy.api({
         method: 'GET',
         url: baseUrl 
       }).then((res) => {
          expect(res.status).to.equal(200);
       });
-    });
  };
 
  const retornarUsuario = () => {

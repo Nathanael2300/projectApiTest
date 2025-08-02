@@ -10,15 +10,13 @@ describe('PUT /users/id:1 - Atualizar dados do usuario', () => {
     const baseUrl = ('https://jsonplaceholder.typicode.com/users')
 
 const validarStatus = () => {
-        it('Deve retornar status 200', () => {
-            cy.api({
-                method: 'GET',
-                url: baseUrl
-            }).then((res) => {
-                expect(res.status).to.equal(200);
-            });
-        });
-    };
+    cy.api({
+        method: 'GET',
+            url: baseUrl
+        }).then((res) => {
+        expect(res.status).to.equal(200);
+    });    
+};
 
 const atualizarUsuario = () => {
     const userUpdate = {
