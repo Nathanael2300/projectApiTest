@@ -2,6 +2,10 @@ describe('DELETE /users/1 - Deletar usuario da lista', () => {
 
   const baseUrl = 'https://jsonplaceholder.typicode.com/users';
 
+  const validarStatus = () => {
+      cy.validarStatusAPI(baseUrl);
+  };
+
   const deletarUsuario = () => {
     cy.api({
       method: 'DELETE',
@@ -13,7 +17,7 @@ describe('DELETE /users/1 - Deletar usuario da lista', () => {
   };
 
   beforeEach(() => {
-    cy.validarStatusAPI(baseUrl)
+    validarStatus();
   });
 
   it('Deve deletar o usuario', () => {

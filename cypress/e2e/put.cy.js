@@ -9,6 +9,10 @@ let data = {
 describe('PUT /users/id:1 - Atualizar dados do usuario', () => {
     const baseUrl = ('https://jsonplaceholder.typicode.com/users')
 
+    const validarStatus = () => {
+        cy.validarStatusAPI(baseUrl);
+    }
+
     const atualizarUsuario = () => {
         const userUpdate = {
             name: `${data.FirstName} ${data.LastName}`,
@@ -31,7 +35,7 @@ describe('PUT /users/id:1 - Atualizar dados do usuario', () => {
     };
 
     beforeEach(() => {
-        cy.validarStatusAPI(baseUrl)
+        validarStatus();
     });
 
     it('Deve atualizar dados do usuario', () => {

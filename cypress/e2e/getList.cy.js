@@ -2,6 +2,10 @@ describe('GET /users - retornar uma lista de usuarios', () => {
 
   const baseUrl = ('https://jsonplaceholder.typicode.com/users')
 
+  const validarStatus = () => {
+    cy.validarStatusAPI(baseUrl);
+  }
+
   const retornarListasUsuarios = () => {
     cy.api({
       method: 'GET',
@@ -21,7 +25,7 @@ describe('GET /users - retornar uma lista de usuarios', () => {
   };
 
   beforeEach(() => {
-    cy.validarStatusAPI(baseUrl)
+    validarStatus();
   });
 
   it('Deve retornar uma lista de usuarios', () => {

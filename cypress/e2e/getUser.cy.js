@@ -2,6 +2,10 @@ describe('GET /users/id:1 - retornar um usuario', () => {
 
     const baseUrl = ('https://jsonplaceholder.typicode.com/users')
 
+    const validarStatus = () => {
+        cy.validarStatusAPI(baseUrl);
+    };
+
     const retornarUsuario = () => {
         cy.api({
             method: 'GET',
@@ -19,7 +23,7 @@ describe('GET /users/id:1 - retornar um usuario', () => {
     };
 
     beforeEach(() => {
-        cy.validarStatusAPI(baseUrl)
+        validarStatus();
     });
 
     it('Deve retornar apenas um usuario', () => {
