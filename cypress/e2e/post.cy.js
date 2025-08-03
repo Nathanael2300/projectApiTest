@@ -9,15 +9,6 @@ describe('POST /users - criar um novo usuario', () => {
 
     const baseUrl = ('https://jsonplaceholder.typicode.com/users');
 
-    const validarStatus = () => {
-        return cy.api({
-            method: 'GET',
-            url: baseUrl
-        }).then((res) => {
-            expect(res.status).to.equal(200);
-        });
-    };
-
     const criarUsuario = () => {
         let body = {
             name: `${data.FirstName} ${data.LastName}`,
@@ -40,8 +31,8 @@ describe('POST /users - criar um novo usuario', () => {
     };
 
     beforeEach(() => {
-        validarStatus();
-      });
+        cy.validarStatusAPI(baseUrl)
+    });
 
     it('Deve criar novo usuario com sucesso', () => {
         criarUsuario();
