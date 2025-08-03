@@ -1,3 +1,3 @@
 Plano de Teste, Escopo do Teste e Caso de Teste: https://1drv.ms/x/c/5b11673d38c4adab/EWniU6EeHGdImdWv-_Y8vhUBbfowhzzVf9iDkraoeDpxhQ?e=QZzZCY
 
-Conclusão de Teste e Relatorio do teste:  C:\Users\natha\OneDrive\Desktop\projeto\Conclusão do teste e relatorio do teste
+Conclusão de Teste e Relatorio do teste:  projeto\Conclusão do teste e relatorio do teste
