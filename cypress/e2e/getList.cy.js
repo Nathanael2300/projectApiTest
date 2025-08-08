@@ -20,10 +20,6 @@ describe('GET /users - retornar uma lista de usuarios', () => {
     });
   };
 
-  beforeEach(() => {
-    validarStatus();
-  });
-
   it('Deve retornar uma lista de usuarios', () => {
     retornarListasUsuarios();
   });
